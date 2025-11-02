@@ -1,0 +1,290 @@
+/*
+  -------------------------------------------------
+  PASTELERÍA MIL SABORES - HOJA DE ESTILOS PRINCIPAL
+  -------------------------------------------------
+  Este archivo controla todo el diseño.
+  Usamos variables CSS para mantener la coherencia
+  y no repetir código.
+  -------------------------------------------------
+*/
+
+/* --- 1. Importación de Fuentes (Pastelería PDF) --- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
+
+/* --- 2. Variables de Color (Pastelería PDF) --- */
+:root {
+  /* Paleta de colores [cite: 68-86] */
+  --color-fondo: #FFF5E1;        /* Crema Pastel */
+  --color-acento-rosa: #FFCOCB;   /* Rosa Suave */
+  --color-acento-choco: #8B4513;  /* Chocolate */
+  --color-texto-principal: #5D4037; /* Marrón Oscuro */
+  --color-texto-secundario: #B0BEC5; /* Gris Claro (asumimos B0 en lugar de BO) */
+  --color-blanco: #FFFFFF;
+
+  /* Tipografías [cite: 74-80] */
+  --fuente-principal: 'Lato', sans-serif;
+  --fuente-encabezado: 'Pacifico', cursive;
+}
+
+/* --- 3. Reset Básico (Coherencia) --- */
+/*
+  Esto asegura que todos los navegadores
+  empiecen desde el mismo punto (sin márgenes, etc.)
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Esta es una regla de oro */
+}
+
+/* --- 4. Estilos Globales (Minimalismo) --- */
+body {
+  font-family: var(--fuente-principal);
+  color: var(--color-texto-principal);
+  background-color: var(--color-fondo);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fuente-encabezado);
+  color: var(--color-acento-choco);
+}
+
+a {
+  color: var(--color-acento-choco);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- 5. Estructura Semántica (Rúbrica) --- */
+/*
+  Definimos el ancho máximo para el contenido.
+  Usaremos estas clases en nuestro HTML.
+*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto; /* Centra el contenido */
+  padding: 0 20px; /* Espacio en los costados */
+}
+
+/*
+  Estilos base para el header, main y footer
+  que se usarán en TODAS las páginas.
+*/
+.main-header {
+  background-color: var(--color-blanco);
+  padding: 20px 0;
+  border-bottom: 2px solid var(--color-acento-choco);
+}
+
+.main-footer {
+  background-color: var(--color-texto-principal);
+  color: var(--color-fondo);
+  padding: 40px 0;
+  margin-top: 50px;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*
+  -------------------------------------------------
+  SECCIÓN 6: LAYOUT - (Instrucciones de Orden)
+  -------------------------------------------------
+*/
+
+/* --- 6.1. Layout del Header y Navegación --- */
+/*
+  Aquí está la magia (Flexbox).
+  Le decimos al <nav> que ordene a sus hijos (logo, menú, usuario)
+  en una fila horizontal.
+*/
+.main-nav {
+  display: flex;
+  justify-content: space-between; /* Separa los elementos */
+  align-items: center; /* Los centra verticalmente */
+}
+
+/*
+  Quitamos las viñetas de las listas y las ponemos en horizontal.
+*/
+.nav-menu,
+.nav-user {
+  list-style: none; /* Adiós a los puntos de la lista */
+  display: flex; /* Pone los <li> en horizontal */
+  gap: 15px; /* Espacio entre cada elemento del menú */
+}
+
+/* Estilos para el texto del logo (Pacifico) */
+.logo-text {
+  font-size: 28px;
+  color: var(--color-texto-principal);
+}
+
+/* Estilos para los enlaces de navegación (Lato) */
+.nav-menu a,
+.nav-user a {
+  font-family: var(--fuente-principal); /* Asegura que sea 'Lato' */
+  font-weight: 700; /* Negrita */
+  font-size: 16px;
+  text-decoration: none;
+  padding: 10px 5px;
+}
+.nav-user a {
+  font-weight: 400; /* El login/registro menos pesado */
+}
+
+/* --- 6.2. Layout del Contenido (Hero y Productos) --- */
+/*
+  Usaremos CSS Grid para la cuadrícula de productos,
+  tal como se ve en el mockup del Anexo 1 [cite: 105-126].
+*/
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas iguales */
+  gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.product-card {
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-acento-rosa);
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--color-acento-rosa);
+  margin-bottom: 10px;
+}
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+/*
+  -------------------------------------------------
+  SECCIÓN 7: RESPONSIVE DESIGN (Portabilidad)
+  -------------------------------------------------
+  Reglas para que el sitio se adapte a móviles.
+*/
+
+/*
+  Para pantallas de tablet y móviles (menos de 768px)
+*/
+@media (max-width: 768px) {
+
+  /*
+    Convertimos el menú horizontal en uno vertical
+    para que quepa en la pantalla del móvil.
+  */
+  .main-nav {
+    flex-direction: column; /* Apila los elementos (logo, menú, usuario) */
+    gap: 20px;
+  }
+
+  .nav-menu,
+  .nav-user {
+    flex-direction: column; /* Apila los ítems del menú */
+    text-align: center; /* Centra el texto del menú */
+  }
+
+  /*
+    Convertimos la cuadrícula de 4 columnas de productos
+    en una de 2 columnas para que quepa mejor.
+  */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  }
+}
+
+
+/*
+  Para pantallas de móviles pequeños (menos de 480px)
+*/
+@media (max-width: 480px) {
+
+  /*
+    Hacemos que el logo no sea tan grande.
+  */
+  .logo-text {
+    font-size: 24px;
+  }
+
+  /*
+    Convertimos la cuadrícula de productos de 2 columnas
+    a 1 columna, para que se vea una debajo de otra.
+  */
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 columna */
+  }
+}
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+/*
+  -------------------------------------------------
+  SECCIÓN 8: LAYOUT (Contenido Específico Index)
+  -------------------------------------------------
+*/
+
+/* --- 8.1. Estilos para el Hero Banner --- */
+/*
+  (Estos son estilos para el banner de bienvenida
+  que ya tenías, para que se vea más limpio)
+*/
+.hero-banner {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.hero-banner h2 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero-banner p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* --- 8.2. Estilos para Misión y Visión --- */
+/*
+  Usamos Flexbox de nuevo para poner
+  las dos cajas (misión y visión) una al lado de la otra.
+*/
+.mission-vision .container {
+  display: flex;
+  gap: 30px; /* Espacio entre las cajas */
+  margin-top: 50px;
+}
+
+.mission-box {
+  flex: 1; /* Hace que ambas cajas ocupen el 50% */
+  background-color: var(--color-blanco);
+  padding: 30px;
+  border: 1px solid var(--color-acento-rosa);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mission-box h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.mission-box p {
+  line-height: 1.6; /* Espacio entre líneas (más legible) */
+}
+
+
+/* --- 8.3. Media Query para Misión/Visión (Portabilidad) --- */
+/*
+  En móviles (menos de 768px), hacemos que las cajas
+  de Misión y Visión se apilen una sobre otra.
+*/
+@media (max-width: 768px) {
+  .mission-vision .container {
+    flex-direction: column; /* Apila las cajas */
+  }
+}
