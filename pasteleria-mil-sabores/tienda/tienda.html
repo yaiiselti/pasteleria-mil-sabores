@@ -1,11 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastelería Mil Sabores - Tienda</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+
+  <header class="main-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="index.html" class="nav-logo">
+          <h1 class="logo-text">Pastelería Mil Sabores</h1>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tienda.html">Productos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <ul class="nav-user">
+          <li class="nav-publico"><a href="login.html">Iniciar Sesión</a></li>
+          <li class="nav-publico"><a href="registro.html">Registrar</a></li>
+          
+          <li class="nav-cliente"><a href="perfil.html">Mi Perfil</a></li>
+          
+          <li class="nav-admin"><a href="../admin/index.html">Panel Admin</a></li>
+
+          <li class="nav-logueado"><a id="logout-link" href="#">Cerrar Sesión</a></li>
+
+          <li><a href="carrito.html" id="cart-link">Carrito (0)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <div class="store-layout">
+
+        <aside class="store-filters">
+          <h3>Filtrar por</h3>
+          
+          <div class="filter-group">
+            <h4>Categoría</h4>
+            <ul>
+              <li><a href="#">Tortas Cuadradas</a></li>
+              <li><a href="#">Tortas Circulares</a></li>
+              <li><a href="#">Postres Individuales</a></li>
+              <li><a href="#">Sin Azúcar</a></li>
+              <li><a href="#">Tradicional</a></li>
+              <li><a href="#">Sin Gluten</a></li>
+              <li><a href="#">Vegana</a></li>
+            </ul>
+          </div>
+
+          <div class="filter-group">
+            <h4>Búsqueda</h4>
+            <input type="search" placeholder="Buscar producto..." class="filter-search">
+          </div>
+        </aside>
+
+        <section class="store-products">
+          <h2 class="store-title">Todos Nuestros Productos</h2>
+          
+          <div id="tienda-product-grid" class="product-grid">
+            </div>
+
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  <script src="../js/validaciones.js" defer></script>
+  
 </body>
 </html>

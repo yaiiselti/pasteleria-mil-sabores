@@ -1,11 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastelería Mil Sabores - Carrito</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+
+  <header class="main-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="index.html" class="nav-logo">
+          <h1 class="logo-text">Pastelería Mil Sabores</h1>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tienda.html">Productos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <ul class="nav-user">
+          <li class="nav-publico"><a href="login.html">Iniciar Sesión</a></li>
+          <li class="nav-publico"><a href="registro.html">Registrar</a></li>
+          
+          <li class="nav-cliente"><a href="perfil.html">Mi Perfil</a></li>
+          
+          <li class="nav-admin"><a href="../admin/index.html">Panel Admin</a></li>
+
+          <li class="nav-logueado"><a id="logout-link" href="#">Cerrar Sesión</a></li>
+
+          <li><a href="carrito.html" id="cart-link">Carrito (0)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <h2 class="cart-page-title">Mi carrito de compras</h2>
+
+      <div class="cart-layout">
+
+        <section id="cart-items-list" class="cart-items">
+          
+          <article class="cart-item">
+            <img src="../assets/img/torta-chocolate-thumb1.jpg" alt="Producto" class="cart-item-img">
+            <div class="cart-item-details">
+              <h4>Producto #1</h4>
+              <p>Torta Cuadrada de Chocolate</p>
+              <span class="cart-item-price">$ 8.000</span>
+            </div>
+            <div class="cart-item-quantity">
+              <label for="qty-1">Cantidad:</label>
+              <input type="number" id="qty-1" value="1" min="1" class="input-quantity">
+            </div>
+            <button class="cart-item-remove">Eliminar</button>
+          </article>
+          </section>
+
+        <aside class="cart-summary">
+          <h3>Resumen del Pedido</h3>
+          
+          <div class="summary-total">
+            <span>TOTAL:</span>
+            <span id="cart-total-value" class="total-price">$ 8.000</span>
+          </div>
+
+          <div class="form-group">
+            <label for="cart-coupon">Ingrese el cupón de descuento:</label>
+            <input type="text" id="cart-coupon" name="coupon" placeholder="Ej: FELICES50">
+            <button class="btn-secundario" id="apply-coupon-btn">APLICAR</button>
+          </div>
+
+          <a href="#" class="btn-principal">IR A PAGAR</a>
+
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  <script src="../js/validaciones.js" defer></script>
+  
 </body>
 </html>

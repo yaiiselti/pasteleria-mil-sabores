@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pastelería Mil Sabores - Iniciar Sesión</title>
+  <title>Pastelería Mil Sabores - Mi Perfil</title>
   
   <link rel="stylesheet" href="../css/style.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -43,57 +41,69 @@
   <main>
     <div class="container">
       
-      <div class="form-container">
-        
-        <h2>Iniciar Sesión</h2>
-        <p>Ingresa a tu cuenta para ver tus pedidos.</p>
+      <div class="admin-header" style="margin-top: 40px;">
+        <h1>Mi Perfil</h1>
+      </div>
 
-        <form id="login-form" novalidate>
-          
-          <div class="form-group">
-            <label for="login-email">Correo</label>
-            <input type="email" id="login-email" name="email" required>
-            <div id="error-email" class="error-message"></div>
-          </div>
-          
-          <div class="form-group">
-            <label for="login-password">Contraseña</label>
-            <input type="password" id="login-password" name="password" required>
-            <div id="error-password" class="error-message"></div>
-          </div>
-          
-          <button type="submit" class="btn-principal">Iniciar Sesión</button>
+      <div class="admin-table-container">
+        <table class="admin-table">
+          <tbody>
+            <tr>
+              <td><strong>Correo de Usuario:</strong></td>
+              <td id="profile-email">Cargando...</td>
+            </tr>
+            <tr>
+              <td><strong>Tipo de Cuenta:</strong></td>
+              <td id="profile-rol">Cliente</td>
+            </tr>
+            <tr>
+              <td><strong>Descuentos Activos:</strong></td>
+              <td id="profile-descuentos">Cargando...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        </form>
-
-        <p class="form-switch">¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a>.</p>
-
+      <div class="admin-header" style="margin-top: 40px;">
+        <h2>Mi Historial de Pedidos</h2>
+      </div>
+      
+      <div class="admin-table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Orden #</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1002</td>
+              <td>25-10-2025</td>
+              <td>$45.000</td>
+              <td>Entregado</td>
+            </tr>
+            <tr>
+              <td>#1001</td>
+              <td>15-09-2025</td>
+              <td>$5.500</td>
+              <td>Entregado</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
     </div>
   </main>
 
-<footer class="main-footer">
-  <div class="container footer-layout">
-    
-    <div class="footer-copy">
+  <footer class="main-footer">
+    <div class="container">
       <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
     </div>
-    
-    <div class="footer-social">
-      <a href="https://www.facebook.com" target="_blank">
-        <i class="fa-brands fa-facebook"></i>
-      </a>
-      <a href="https://www.instagram.com" target="_blank">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.twitter.com" target="_blank">
-        <i class="fa-brands fa-twitter"></i>
-      </a>
-    </div>
+  </footer>
 
-  </div>
-</footer>
   <script src="../js/main.js" defer></script>
   <script src="../js/validaciones.js" defer></script>
   

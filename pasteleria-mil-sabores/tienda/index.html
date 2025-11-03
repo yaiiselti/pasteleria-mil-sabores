@@ -6,6 +6,7 @@
   <title>Pastelería Mil Sabores - Inicio</title>
   
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -25,9 +26,16 @@
         </ul>
 
         <ul class="nav-user">
-          <li><a href="login.html">Iniciar Sesión</a></li>
-          <li><a href="registro.html">Registrar</a></li>
-          <li><a href="carrito.html">Carrito (0)</a></li>
+          <li class="nav-publico"><a href="login.html">Iniciar Sesión</a></li>
+          <li class="nav-publico"><a href="registro.html">Registrar</a></li>
+          
+          <li class="nav-cliente"><a href="perfil.html">Mi Perfil</a></li>
+          
+          <li class="nav-admin"><a href="../admin/index.html">Panel Admin</a></li>
+
+          <li class="nav-logueado"><a id="logout-link" href="#">Cerrar Sesión</a></li>
+
+          <li><a href="carrito.html" id="cart-link">Carrito (0)</a></li>
         </ul>
       </nav>
     </div>
@@ -45,7 +53,7 @@
 
     <section class="featured-products">
       <div class="container">
-        <h3>Productos Destacados</h3>
+        <h2>Productos Destacados</h2>
         <div class="product-grid">
           
           <article class="product-card">
@@ -127,10 +135,26 @@
   </main>
 
   <footer class="main-footer">
-    <div class="container">
+  <div class="container footer-layout">
+    
+    <div class="footer-copy">
       <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
-      </div>
-  </footer>
+    </div>
+    
+    <div class="footer-social">
+      <a href="https://www.facebook.com" target="_blank">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.twitter.com" target="_blank">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+    </div>
+
+  </div>
+</footer>
 
   <script src="../js/main.js" defer></script>
   <script src="../js/validaciones.js" defer></script>

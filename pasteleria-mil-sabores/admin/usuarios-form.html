@@ -1,11 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Formulario de Usuario</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+
+  <div class="admin-layout">
+
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <h2 class="logo-text">Admin Mil Sabores</h2>
+      </div>
+      
+      <nav class="admin-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productos-listado.html">Productos</a></li>
+          <li class="active"><a href="usuarios-listado.html">Usuarios</a></li>
+          
+          <hr class="admin-divider">
+          
+          <li><a href="../tienda/index.html">Volver a la Tienda</a></li>
+          <li><a id="admin-logout-link" href="#">Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="admin-content">
+      
+      <div class="admin-header">
+        <h1>Nuevo Usuario</h1>
+      </div>
+
+      <div class="admin-main-content">
+        <div class="admin-form-wrapper">
+          <form id="usuario-form" class="form-container" novalidate>
+            
+            <div class="form-group">
+              <label for="user-run">RUN</label>
+              <input type="text" id="user-run" name="run" required 
+                     placeholder="Ej: 12345678K (sin puntos ni guion)">
+              <div id="error-run" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="user-nombre">Nombre</label>
+              <input type="text" id="user-nombre" name="nombre" required 
+                     placeholder="Ej: Juan (Max: 50)">
+              <div id="error-nombre" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="user-apellidos">Apellidos</label>
+              <input type="text" id="user-apellidos" name="apellidos" required 
+                     placeholder="Ej: Pérez González (Max: 100)">
+              <div id="error-apellidos" class="error-message"></div>
+            </div>
+            
+            <div class="form-group">
+              <label for="user-email">Correo</label>
+              <input type="email" id="user-email" name="email" required 
+                     placeholder="Ej: usuario@gmail.com, @duoc.cl...">
+              <div id="error-email" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="user-fecha-nac">Fecha de Nacimiento (Opcional)</label>
+              <input type="date" id="user-fecha-nac" name="fecha_nac">
+              <div id="error-fecha-nac" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="user-tipo">Tipo de Usuario</label>
+              <select id="user-tipo" name="tipo" required>
+                <option value="">Seleccione un rol...</option>
+                <option value="Cliente">Cliente</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Administrador">Administrador</option>
+              </select>
+              <div id="error-tipo" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="user-direccion">Dirección</label>
+              <input type="text" id="user-direccion" name="direccion" required 
+                     placeholder="Ej: Av. Siempre Viva 123 (Max: 300)">
+              <div id="error-direccion" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="user-region">Región</label>
+              <select id="user-region" name="region" required>
+                <option value="">Seleccione una región...</option>
+                </select>
+              <div id="error-region" class="error-message"></div>
+            </div>
+            
+            <div class="form-group">
+              <label for="user-comuna">Comuna</label>
+              <select id="user-comuna" name="comuna" required>
+                <option value="">Seleccione una comuna...</option>
+                </select>
+              <div id="error-comuna" class="error-message"></div>
+            </div>
+            
+            <button type="submit" class="btn-principal">Guardar Usuario</button>
+            <a href="usuarios-listado.html" class="btn-secundario-admin">Cancelar</a>
+
+          </form>
+        </div>
+      </div>
+
+    </main>
+
+  </div> <script src="../assets/data/regiones.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/validaciones.js" defer></script>
+  
 </body>
 </html>

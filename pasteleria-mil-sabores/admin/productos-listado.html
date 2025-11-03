@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Listado de Productos</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+
+  <div class="admin-layout">
+
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <h2 class="logo-text">Admin Mil Sabores</h2>
+      </div>
+      
+      <nav class="admin-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="productos-listado.html">Productos</a></li>
+          <li><a href="usuarios-listado.html">Usuarios</a></li>
+          
+          <hr class="admin-divider">
+          
+          <li><a href="../tienda/index.html">Volver a la Tienda</a></li>
+          <li><a id="admin-logout-link" href="#">Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="admin-content">
+      
+      <div class="admin-header">
+        <h1>Gestión de Productos</h1>
+        <a href="productos-form.html" class="btn-admin-nuevo">
+          + Nuevo Producto
+        </a>
+      </div>
+
+      <div class="admin-main-content">
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TC001</td>
+                <td>Torta Cuadrada de Chocolate</td>
+                <td>Tortas Cuadradas</td>
+                <td>$45.000</td>
+                <td>10</td>
+                <td>
+                  <a href="productos-form.html" class="btn-admin-editar">Editar</a>
+                  <button class="btn-admin-eliminar">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>TC002</td>
+                <td>Torta Cuadrada de Frutas</td>
+                <td>Tortas Cuadradas</td>
+                <td>$50.000</td>
+                <td>8</td>
+                <td>
+                  <a href="productos-form.html" class="btn-admin-editar">Editar</a>
+                  <button class="btn-admin-eliminar">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>TT001</td>
+                <td>Torta Circular de Vainilla</td>
+                <td>Tortas Circulares</td>
+                <td>$40.000</td>
+                <td>12</td>
+                <td>
+                  <a href="productos-form.html" class="btn-admin-editar">Editar</a>
+                  <button class="btn-admin-eliminar">Eliminar</button>
+                </td>
+              </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+
+  </div> <script src="../js/main.js" defer></script>
+  <script src="../js/validaciones.js" defer></script>
+  
 </body>
 </html>

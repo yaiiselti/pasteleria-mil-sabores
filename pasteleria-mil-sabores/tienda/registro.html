@@ -1,11 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastelería Mil Sabores - Registro</title>
+
+  <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-    
+
+  <header class="main-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="index.html" class="nav-logo">
+          <h1 class="logo-text">Pastelería Mil Sabores</h1>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tienda.html">Productos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <ul class="nav-user">
+          <li class="nav-publico"><a href="login.html">Iniciar Sesión</a></li>
+          <li class="nav-publico"><a href="registro.html">Registrar</a></li>
+          
+          <li class="nav-cliente"><a href="perfil.html">Mi Perfil</a></li>
+          
+          <li class="nav-admin"><a href="../admin/index.html">Panel Admin</a></li>
+
+          <li class="nav-logueado"><a id="logout-link" href="#">Cerrar Sesión</a></li>
+
+          <li><a href="carrito.html" id="cart-link">Carrito (0)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="form-container">
+
+        <h2>Crea tu Cuenta</h2>
+        <p>Regístrate para acceder a descuentos y un seguimiento de tus pedidos.</p>
+
+        <form id="registro-form" novalidate>
+
+          <div class="form-group">
+            <label for="reg-run">RUN</label>
+            <input type="text" id="reg-run" name="run" required placeholder="Ej: 12345678K">
+            <div id="error-run" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-nombre">Nombre</label>
+            <input type="text" id="reg-nombre" name="nombre" required placeholder="Ej: Juan">
+            <div id="error-nombre" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-apellidos">Apellidos</label>
+            <input type="text" id="reg-apellidos" name="apellidos" required placeholder="Ej: Pérez González">
+            <div id="error-apellidos" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-email">Correo</label>
+            <input type="email" id="reg-email" name="email" required placeholder="Ej: juan.perez@gmail.com">
+            <div id="error-email" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-password">Contraseña</label>
+            <input type="password" id="reg-password" name="password" required placeholder="Entre 4 y 10 caracteres">
+            <div id="error-password" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-confirm-password">Confirmar Contraseña</label>
+            <input type="password" id="reg-confirm-password" name="confirm_password" required
+              placeholder="Vuelve a escribir tu contraseña">
+            <div id="error-confirm-password" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-fecha-nac">Fecha de Nacimiento</label>
+            <input type="date" id="reg-fecha-nac" name="fecha_nac" required>
+            <div id="error-fecha-nac" class="error-message"></div>
+            
+            <div id="success-fecha-nac" class="success-message"></div>
+            
+          </div>
+
+          <div class="form-group">
+            <label for="reg-direccion">Dirección</label>
+            <input type="text" id="reg-direccion" name="direccion" required placeholder="Ej: Av. Siempre Viva 123">
+            <div id="error-direccion" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-region">Región</label>
+            <select id="reg-region" name="region" required>
+              <option value="">Seleccione una región...</option>
+            </select>
+            <div id="error-region" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-comuna">Comuna</label>
+            <select id="reg-comuna" name="comuna" required>
+              <option value="">Seleccione una comuna...</option>
+            </select>
+            <div id="error-comuna" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-promo">Código Promocional (Opcional)</label>
+            <input type="text" id="reg-promo" name="promo" placeholder="Ej: FELICES50">
+            <div id="error-promo" class="error-message"></div>
+          </div>
+
+          <button type="submit" class="btn-principal">Registrar</button>
+
+        </form>
+
+        <p class="form-switch">¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a>.</p>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/data/regiones.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/validaciones.js" defer></script>
 </body>
+
 </html>

@@ -1,11 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastelería Mil Sabores - Blog</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+
+  <header class="main-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="index.html" class="nav-logo">
+          <h1 class="logo-text">Pastelería Mil Sabores</h1>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tienda.html">Productos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <ul class="nav-user">
+          <li class="nav-publico"><a href="login.html">Iniciar Sesión</a></li>
+          <li class="nav-publico"><a href="registro.html">Registrar</a></li>
+          
+          <li class="nav-cliente"><a href="perfil.html">Mi Perfil</a></li>
+          
+          <li class="nav-admin"><a href="../admin/index.html">Panel Admin</a></li>
+
+          <li class="nav-logueado"><a id="logout-link" href="#">Cerrar Sesión</a></li>
+
+          <li><a href="carrito.html" id="cart-link">Carrito (0)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <div class="blog-list-container">
+        
+        <h2 class="blog-list-title">Noticias Importantes</h2>
+
+        <article class="blog-post-summary">
+          <div class="blog-post-image">
+            <img src="../assets/img/record-guinness.png" alt="Caso curioso 1">
+          </div>
+          <div class="blog-post-content">
+            <h3>Caso Curioso #1</h3>
+            <p>Descubre el secreto detrás de nuestro récord Guinness de 1995 y cómo cambió la repostería en Chile...</p>
+            <a href="blog-articulo-1.html" class="btn-secundario">Ver Caso</a>
+          </div>
+        </article>
+
+        <article class="blog-post-summary">
+          <div class="blog-post-image">
+            <img src="../assets/img/estudiantes-pastel-vegano.webp" alt="Caso curioso 2">
+          </div>
+          <div class="blog-post-content">
+            <h3>Caso Curioso #2</h3>
+            <p>Estudiantes de Duoc UC innovan con recetas veganas que mantienen todo el sabor de la tradición...</p>
+            <a href="blog-articulo-2.html" class="btn-secundario">Ver Caso</a>
+          </div>
+        </article>
+
+        </div>
+
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  <script src="../js/validaciones.js" defer></script>
+  
 </body>
 </html>

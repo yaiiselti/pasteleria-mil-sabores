@@ -1,11 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Listado de Usuarios</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+
+  <div class="admin-layout">
+
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <h2 class="logo-text">Admin Mil Sabores</h2>
+      </div>
+      
+      <nav class="admin-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productos-listado.html">Productos</a></li>
+          <li class="active"><a href="usuarios-listado.html">Usuarios</a></li>
+          
+          <hr class="admin-divider">
+          
+          <li><a href="../tienda/index.html">Volver a la Tienda</a></li>
+          <li><a id="admin-logout-link" href="#">Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="admin-content">
+      
+      <div class="admin-header">
+        <h1>Gestión de Usuarios</h1>
+        <a href="usuarios-form.html" class="btn-admin-nuevo">
+          + Nuevo Usuario
+        </a>
+      </div>
+
+      <div class="admin-main-content">
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>RUN</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Tipo de Usuario</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>12345678K</td>
+                <td>Ana González</td>
+                <td>ana.gonzalez@duoc.cl</td>
+                <td>Cliente</td>
+                <td>
+                  <a href="usuarios-form.html" class="btn-admin-editar">Editar</a>
+                  <button class="btn-admin-eliminar">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>98765432J</td>
+                <td>Carlos Pérez</td>
+                <td>carlos.perez@gmail.com</td>
+                <td>Cliente</td>
+                <td>
+                  <a href="usuarios-form.html" class="btn-admin-editar">Editar</a>
+                  <button class="btn-admin-eliminar">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>112233445</td>
+                <td>Admin MilSabores</td>
+                <td>admin@profesor.duoc.cl</td>
+                <td>Administrador</td>
+                <td>
+                  <a href="usuarios-form.html" class="btn-admin-editar">Editar</a>
+                  <button class="btn-admin-eliminar">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+
+  </div> <script src="../js/main.js" defer></script>
+  <script src="../js/validaciones.js" defer></script>
+  
 </body>
 </html>
