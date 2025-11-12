@@ -65,6 +65,30 @@ document.addEventListener('DOMContentLoaded', () => {
       validarFormularioUsuario();
     });
   }
+
+  // -----
+  // CHEQUEO 6 (NUEVO): ¿Formulario de Checkout?
+  // [VERSIÓN FINAL SIN ALERT()]
+  // -----
+  const checkoutForm = document.getElementById('checkout-form');
+  if (checkoutForm) {
+    checkoutForm.addEventListener('submit', (event) => {
+      // Prevenimos el envío
+      event.preventDefault();
+      // Validamos el formulario
+      if (validarFormularioCheckout()) {
+        
+        // 1. Guardamos el pedido para la boleta
+        localStorage.setItem('ultimoPedido', JSON.stringify(carrito));
+        
+        // 2. Limpiamos el carrito
+        localStorage.removeItem('carrito');
+        
+        // 3. Redirigimos INMEDIATAMENTE a la boleta personalizada
+        window.location.href = 'confirmacion.html';
+      }
+    });
+  }
 });
 
 
@@ -650,3 +674,44 @@ function validarFormularioUsuario() {
   }
 }
 
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+// --- 9. LÓGICA DE VALIDACIÓN: CHECKOUT ---
+
+function validarFormularioCheckout() {
+  const form = document.getElementById('checkout-form');
+  const emailInput = document.getElementById('checkout-email');
+  const direccionInput = document.getElementById('checkout-direccion');
+  const fechaInput = document.getElementById('checkout-fecha-entrega');
+  const tarjetaInput = document.getElementById('checkout-tarjeta');
+
+  limpiarTodosLosErrores(form);
+  let esValido = true;
+
+  // 1. Validar Email
+  if (emailInput.value.trim() === '' || !emailInput.value.includes('@')) {
+    mostrarError('checkout-email', 'Se requiere un correo válido.');
+    esValido = false;
+  }
+
+  // 2. Validar Dirección
+  if (direccionInput.value.trim() === '') {
+    mostrarError('checkout-direccion', 'La dirección es requerida.');
+    esValido = false;
+  }
+
+  // 3. Validar Fecha de Entrega
+  if (fechaInput.value === '') {
+    mostrarError('checkout-fecha-entrega', 'Debe seleccionar una fecha.');
+    esValido = false;
+  }
+
+  // 4. Validar Tarjeta (Simulación simple)
+  const tarjeta = tarjetaInput.value.replace(/\s/g, ''); // Quita espacios
+  if (tarjeta === '' || !/^\d{16}$/.test(tarjeta)) {
+    mostrarError('checkout-tarjeta', 'Se requiere un número de tarjeta válido (16 dígitos).');
+    esValido = false;
+  }
+
+  return esValido;
+}

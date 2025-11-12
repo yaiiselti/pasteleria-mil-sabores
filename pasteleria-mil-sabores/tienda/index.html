@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pastelería Mil Sabores - Inicio</title>
-  
+
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
 
   <header class="main-header">
@@ -16,7 +18,7 @@
         <a href="index.html" class="nav-logo">
           <h1 class="logo-text">Pastelería Mil Sabores</h1>
         </a>
-        
+
         <ul class="nav-menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="tienda.html">Productos</a></li>
@@ -28,9 +30,9 @@
         <ul class="nav-user">
           <li class="nav-publico"><a href="login.html">Iniciar Sesión</a></li>
           <li class="nav-publico"><a href="registro.html">Registrar</a></li>
-          
+
           <li class="nav-cliente"><a href="perfil.html">Mi Perfil</a></li>
-          
+
           <li class="nav-admin"><a href="../admin/index.html">Panel Admin</a></li>
 
           <li class="nav-logueado"><a id="logout-link" href="#">Cerrar Sesión</a></li>
@@ -42,7 +44,7 @@
   </header>
 
   <main>
-    
+
     <section class="hero-banner">
       <div class="container">
         <h2>Bienvenido a la Tradición</h2>
@@ -50,83 +52,97 @@
         <a href="tienda.html" class="btn-principal">Ver Productos</a>
       </div>
     </section>
+<section class="featured-products">
+  <div class="container">
+    <h3>Productos Destacados</h3>
+    <div class="product-grid">
 
-    <section class="featured-products">
-      <div class="container">
-        <h2>Productos Destacados</h2>
-        <div class="product-grid">
-          
-          <article class="product-card">
-            <img src="../assets/img/torta-de-chocolate.jpg" alt="Torta de Chocolate">
-            <h4>Torta Cuadrada de Chocolate</h4>
-            <p>$45.000</p>
-            <a href="producto.html" class="btn-secundario">Ver detalle</a>
-          </article>
+      <article class="product-card">
+        <img src="../assets/img/productos/torta-chocolate-1.png" alt="Torta de Chocolate">
+        <h4>
+          <a href="producto.html?codigo=TC001" class="card-stretched-link">
+            Torta Cuadrada de Chocolate
+          </a>
+        </h4>
+        <p>$45.000</p>
+        <a href="producto.html?codigo=TC001" class="btn-secundario">Ver detalle</a>
+      </article>
 
-          <article class="product-card">
-            <img src="../assets/img/torta-cuadrada-de-frutas.jpeg" alt="Torta de Frutas">
-            <h4>Torta Cuadrada de Frutas</h4>
-            <p>$50.000</p>
-            <a href="producto.html" class="btn-secundario">Ver detalle</a>
-          </article>
+      <article class="product-card">
+        <img src="../assets/img/productos/torta-frutas-1.png" alt="Torta de Frutas">
+        <h4>
+          <a href="producto.html?codigo=TC002" class="card-stretched-link">
+            Torta Cuadrada de Frutas
+          </a>
+        </h4>
+        <p>$50.000</p>
+        <a href="producto.html?codigo=TC002" class="btn-secundario">Ver detalle</a>
+      </article>
 
-          <article class="product-card">
-            <img src="../assets/img/torta-circular-de-vainilla.png" alt="Torta de Vainilla">
-            <h4>Torta Circular de Vainilla</h4>
-            <p>$40.000</p>
-            <a href="producto.html" class="btn-secundario">Ver detalle</a>
-          </article>
+      <article class="product-card">
+        <img src="../assets/img/productos/torta-vainilla-1.png" alt="Torta de Vainilla">
+        <h4>
+          <a href="producto.html?codigo=TT001" class="card-stretched-link">
+            Torta Circular de Vainilla
+          </a>
+        </h4>
+        <p>$40.000</p>
+        <a href="producto.html?codigo=TT001" class="btn-secundario">Ver detalle</a>
+      </article>
 
-          <article class="product-card">
-            <img src="../assets/img/torta-circular-de-manjar.jpg" alt="Torta de Manjar">
-            <h4>Torta Circular de Manjar</h4>
-            <p>$42.000</p>
-            <a href="producto.html" class="btn-secundario">Ver detalle</a>
-          </article>
 
-          <article class="product-card">
-            <img src="../assets/img/mousse-de-chocolate.jpg" alt="Mousse">
-            <h4>Mousse de Chocolate</h4>
-            <p>$5.000</p>
-            <a href="producto.html" class="btn-secundario">Ver detalle</a>
-          </article>
-          
-          <article class="product-card">
-            <img src="../assets/img/tiramisu-clasico.webp" alt="Tiramisú">
-            <h4>Tiramisú Clásico</h4>
-            <p>$5.500</p>
-            <a href="producto.html" class="btn-secundario">Ver detalle</a>
-          </article>
+      <article class="product-card">
+        <img src="../assets/img/productos/mousse-chocolate-1.png" alt="Mousse">
+        <h4>
+          <a href="producto.html?codigo=PI001" class="card-stretched-link">
+            Mousse de Chocolate
+          </a>
+        </h4>
+        <p>$5.000</p>
+        <a href="producto.html?codigo=PI001" class="btn-secundario">Ver detalle</a>
+      </article>
 
-          <article class="product-card">
-            <img src="../assets/img/brownie-sin-gluten.jpeg" alt="Brownie">
-            <h4>Brownie Sin Gluten</h4>
-            <p>$4.000</p>
-            <a href="producto.html" class="btn-secundario">Ver detalle</a>
-          </article>
+      <article class="product-card">
+        <img src="../assets/img/productos/brownie-sg-1.png" alt="Brownie">
+        <h4>
+          <a href="producto.html?codigo=PG001" class="card-stretched-link">
+            Brownie Sin Gluten
+          </a>
+        </h4>
+        <p>$4.000</p>
+        <a href="producto.html?codigo=PG001" class="btn-secundario">Ver detalle</a>
+      </article>
 
-          <article class="product-card">
-            <img src="../assets/img/torta-vegana-de-chocolate.jpg" alt="Torta Vegana">
-            <h4>Torta Vegana de Chocolate</h4>
-            <p>$50.000</p>
-            <a href="producto.html" class="btn-secundario">Ver detalle</a>
-          </article>
+      <article class="product-card">
+        <img src="../assets/img/productos/torta-vegana-1.png" alt="Torta Vegana">
+        <h4>
+          <a href="producto.html?codigo=PV001" class="card-stretched-link">
+            Torta Vegana de Chocolate
+          </a>
+        </h4>
+        <p>$50.000</p>
+        <a href="producto.html?codigo=PV001" class="btn-secundario">Ver detalle</a>
+      </article>
 
-        </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section class="mission-vision">
       <div class="container">
-        
+
         <div class="mission-box">
           <h3>Nuestra Misión</h3>
-          <p>Ofrecer una experiencia dulce y memorable a nuestros clientes, proporcionando tortas y productos de repostería de alta calidad para todas las ocasiones, mientras celebramos nuestras raíces históricas y fomentamos la creatividad en la repostería.</p>
+          <p>Ofrecer una experiencia dulce y memorable a nuestros clientes, proporcionando tortas y productos de
+            repostería de alta calidad para todas las ocasiones, mientras celebramos nuestras raíces históricas y
+            fomentamos la creatividad en la repostería.</p>
         </div>
-        
+
         <div class="mission-box">
           <h3>Nuestra Visión</h3>
-          <p>Convertirnos en la tienda online líder de productos de repostería en Chile, conocida por nuestra innovación, calidad y el impacto positivo en la comunidad, especialmente en la formación de nuevos talentos en gastronomía.</p>
+          <p>Convertirnos en la tienda online líder de productos de repostería en Chile, conocida por nuestra
+            innovación, calidad y el impacto positivo en la comunidad, especialmente en la formación de nuevos talentos
+            en gastronomía.</p>
         </div>
 
       </div>
@@ -135,29 +151,30 @@
   </main>
 
   <footer class="main-footer">
-  <div class="container footer-layout">
-    
-    <div class="footer-copy">
-      <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
-    </div>
-    
-    <div class="footer-social">
-      <a href="https://www.facebook.com" target="_blank">
-        <i class="fa-brands fa-facebook"></i>
-      </a>
-      <a href="https://www.instagram.com" target="_blank">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.twitter.com" target="_blank">
-        <i class="fa-brands fa-twitter"></i>
-      </a>
-    </div>
+    <div class="container footer-layout">
 
-  </div>
-</footer>
+      <div class="footer-copy">
+        <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.facebook.com" target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </div>
+
+    </div>
+  </footer>
 
   <script src="../js/main.js" defer></script>
   <script src="../js/validaciones.js" defer></script>
-  
+
 </body>
+
 </html>

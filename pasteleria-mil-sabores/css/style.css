@@ -127,14 +127,31 @@ a:hover {
 /* Estilos para los enlaces de navegación (Lato) */
 .nav-menu a,
 .nav-user a {
-  font-family: var(--fuente-principal); /* Asegura que sea 'Lato' */
-  font-weight: 700; /* Negrita */
+  font-family: var(--fuente-principal);
+  font-weight: 700;
   font-size: 16px;
   text-decoration: none;
   padding: 10px 5px;
+  
+  display: inline-block; /* Necesario para que 'transform' funcione */
+  transition: transform 0.2s ease; /* Anima el "zoom" suavemente */
 }
 .nav-user a {
   font-weight: 400; /* El login/registro menos pesado */
+}
+
+/*
+  SECCIÓN 6.1b: Animación de enlaces de menú
+*/
+
+.nav-menu a:hover,
+.nav-user a:hover {
+  /* "Pequeño zoom" (1.1 = 10% más grande) */
+  transform: scale(1.1); 
+  
+  /* También quitamos el subrayado global que
+     teníamos, porque el zoom es suficiente */
+  text-decoration: none; 
 }
 
 /* --- 6.2. Layout del Contenido (Hero y Productos) --- */
@@ -144,24 +161,75 @@ a:hover {
 */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas iguales */
+  grid-template-columns: repeat(3, 1fr); /* Crea 4 columnas iguales */
   gap: 20px; /* Espacio entre las tarjetas */
 }
+
+/* --- Busca tu .product-card y añade la línea --- */
 
 .product-card {
   background-color: var(--color-blanco);
   border: 1px solid var(--color-acento-rosa);
-  border-radius: 10px; /* Bordes redondeados */
+  border-radius: 8px; 
   padding: 15px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  position: relative; /* <-- ¡AÑADE ESTA LÍNEA! */
 }
 
 .product-card img {
-  max-width: 100%;
-  height: auto;
-  border-bottom: 1px solid var(--color-acento-rosa);
-  margin-bottom: 10px;
+  width: 100%;
+  height: 200px; /* Altura fija para la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  border-bottom: 1px solid var(--color-borde-tarjeta);
+  margin-bottom: 15px;
+  
+  /* --- ¡AÑADIMOS ESTA LÍNEA! --- */
+  border-top-left-radius: 8px; /* Redondea la esquina superior izquierda */
+  border-top-right-radius: 8px; /* Redondea la esquina superior derecha */
+}
+
+/*
+  SECCIÓN 6.3: Animación de Tarjeta de Producto
+*/
+
+.product-card:hover {
+  /* Hacemos un "zoom" del 5% */
+  transform: scale(1.05); 
+  
+  /* Aumentamos la sombra para que "flote" */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+}
+
+/*
+  SECCIÓN 6.4: Enlace "Estirado" de la Tarjeta
+*/
+
+.card-stretched-link {
+  /* Quita cualquier estilo de enlace del título */
+  text-decoration: none;
+  color: inherit; /* Hereda el color del <h4> */
+}
+
+.card-stretched-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1; /* Se pone encima de la tarjeta, pero... */
+}
+
+/* Hacemos que el botón "Ver detalle" se ponga 
+   por ENCIMA del enlace estirado, para que 
+   todavía se pueda presionar por separado.
+*/
+.product-card .btn-secundario {
+  position: relative;
+  z-index: 2;
 }
 /*----------------------------------------------------------------------------------------------------------------------------------*/
 /*
@@ -339,12 +407,10 @@ a:hover {
   font-size: 16px;
 }
 
-/* Estilo para el botón principal 
-  (Lo usamos en el hero y en los formularios)
-*/
+/* REEMPLAZA tu .btn-principal con esto: */
 .btn-principal {
   display: inline-block;
-  width: 100%; /* Ocupa todo el ancho */
+  width: 100%;
   padding: 15px;
   background-color: var(--color-acento-choco);
   color: var(--color-blanco);
@@ -353,10 +419,13 @@ a:hover {
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  border: none;
+  
+  /* --- CAMBIOS AQUÍ --- */
+  border: 2px solid var(--color-acento-choco); /* Borde sólido */
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  /* Animamos el color de fondo Y el color del texto */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-principal:hover {
@@ -792,13 +861,45 @@ a:hover {
   gap: 5px;
 }
 
+.cart-item-edit:hover,
+.cart-item-remove:hover {
+  background-color: var(--color-acento-choco);
+  color: var(--color-blanco);
+}
+
+/* Hacemos el botón de eliminar de un color
+   de "peligro" sutil (marrón oscuro)
+*/
 .cart-item-remove {
-  background: none;
-  border: none;
-  color: #D32F2F; /* Rojo de error */
-  text-decoration: underline;
-  cursor: pointer;
+  border-color: var(--color-texto-principal);
+  color: var(--color-texto-principal);
+}
+.cart-item-remove:hover {
+  background-color: var(--color-texto-principal);
+  color: var(--color-blanco);
+}
+
+.cart-item-message {
   font-size: 14px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.cart-item-edit,
+.cart-item-remove {
+  font-family: var(--fuente-principal);
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 5px;
+  border: 2px solid var(--color-acento-choco);
+  background-color: transparent;
+  color: var(--color-acento-choco);
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+  display: inline-block; /* Para que el 'margin-top' funcione */
 }
 
 /* --- 14.2. Resumen del Carrito --- */
@@ -829,21 +930,6 @@ a:hover {
   color: var(--color-acento-choco);
 }
 
-/* Estilos para el botón "APLICAR" cupón */
-.cart-summary .form-group {
-  position: relative;
-  margin-bottom: 25px;
-}
-.cart-summary .form-group input {
-  padding-right: 90px; /* Deja espacio para el botón */
-}
-.cart-summary .form-group .btn-secundario {
-  position: absolute;
-  right: 5px;
-  top: 32px; /* Ajustar verticalmente */
-  width: auto;
-  padding: 8px 12px;
-}
 
 /* --- 14.3. Media Query para Carrito (Portabilidad) --- */
 @media (max-width: 768px) {
@@ -915,9 +1001,10 @@ a:hover {
   text-decoration: none;
 }
 .admin-nav ul li.active a {
-  background-color: var(--color-acento-rosa);
-  color: var(--color-texto-principal);
+  background-color: var(--color-acento-choco); /* Café Chocolate (más claro) */
+  color: var(--color-blanco); /* ¡TEXTO BLANCO! */
 }
+
 
 /* --- 15.2. Contenido Principal (Content) --- */
 .admin-content {
@@ -963,7 +1050,7 @@ a:hover {
   -------------------------------------------------
 */
 
-*/
+
 
 /* Oculta los enlaces de Cliente, Admin y Logueado por defecto.
    JS decidirá cuál mostrar. Los enlaces públicos son visibles por defecto.
@@ -974,104 +1061,6 @@ a:hover {
   display: none;
 }
 
-/*-----------------------------------------------------------------------------------------------------------------------------------*/
-/*
-  -------------------------------------------------
-  SECCIÓN 15: LAYOUT DEL ADMINISTRADOR
-  -------------------------------------------------
-  Estilos para las páginas en la carpeta /admin/
-*/
-
-/* Usamos un fondo diferente para el body
-  solo en las páginas de admin.
-*/
-.admin-layout {
-  display: flex;
-  min-height: 100vh; /* Ocupa toda la altura */
-  background-color: #f4f7fa; /* Un gris muy claro */
-}
-
-/* --- 15.1. Barra Lateral (Sidebar) --- */
-.admin-sidebar {
-  flex: 0 0 250px; /* Ancho fijo 250px */
-  background-color: var(--color-texto-principal);
-  color: var(--color-blanco);
-  padding: 20px;
-}
-
-.admin-logo {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.admin-logo .logo-text {
-  color: var(--color-blanco);
-  font-size: 24px;
-}
-
-.admin-nav ul {
-  list-style: none;
-}
-.admin-nav ul li a {
-  display: block;
-  padding: 15px;
-  color: var(--color-blanco);
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-}
-.admin-nav ul li a:hover {
-  background-color: var(--color-acento-choco);
-  text-decoration: none;
-}
-/* Estilo para el link "Cerrar Sesión" */
-.admin-nav ul li #admin-logout-link:hover {
-  background-color: #D32F2F; /* Rojo al pasar el mouse */
-}
-/* --- REEMPLAZA CON ESTA REGLA --- */
-.admin-nav ul li.active a {
-  background-color: var(--color-acento-choco); /* <-- CAMBIAMOS A CHOCOLATE */
-  color: var(--color-blanco);
-}
-
-.admin-divider {
-  border: none;
-  border-top: 1px solid #7a5e56; /* Un marrón más claro */
-  margin: 15px 0;
-}
-
-/* --- 15.2. Contenido Principal (Content) --- */
-.admin-content {
-  flex: 1; /* Ocupa el resto del espacio */
-  padding: 30px;
-}
-
-.admin-header {
-  border-bottom: 2px solid var(--color-texto-secundario);
-  padding-bottom: 20px;
-  margin-bottom: 30px;
-}
-.admin-header h1 {
-  font-size: 36px;
-  color: var(--color-texto-principal);
-}
-
-.admin-main-content p {
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 15px;
-}
-
-
-/* --- 15.3. Media Query para Admin (Portabilidad) --- */
-@media (max-width: 768px) {
-  .admin-layout {
-    flex-direction: column; /* Apila sidebar y content */
-  }
-  .admin-sidebar {
-    flex: 0 0 auto; /* El alto se ajusta */
-  }
-}
 /*-----------------------------------------------------------------------------------------------------------------------------------*/
 /*
   -------------------------------------------------
@@ -1302,4 +1291,328 @@ a:hover {
     flex-direction: column; /* Apila el texto y los iconos */
     gap: 15px;
   }
+}
+
+/*
+  -------------------------------------------------
+  SECCIÓN 21: ESTILOS DEL MODAL PERSONALIZADO
+  -------------------------------------------------
+*/
+
+/* El fondo oscuro que cubre la página */
+#modal-overlay {
+  position: fixed; /* Se queda fijo en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Negro semitransparente */
+  
+  /* Centra el contenedor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000; /* Se pone por encima de todo */
+
+  /* Oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* La clase que JS añadirá para MOSTRAR el modal */
+#modal-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* El contenedor blanco */
+#modal-container {
+  background-color: var(--color-blanco);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px; /* Ancho máximo */
+  
+  /* Animación de "zoom" al aparecer */
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+#modal-overlay.visible #modal-container {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-texto-secundario);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  /* Reutilizamos la fuente de encabezado */
+  font-family: var(--fuente-encabezado);
+  color: var(--color-texto-principal);
+  font-size: 24px;
+}
+
+.modal-close-btn {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-texto-secundario);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-body p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 15px;
+}
+
+/* Hacemos que los botones reutilizados ocupen 50% */
+.modal-footer .btn-principal,
+.modal-footer .btn-secundario {
+  flex: 1; 
+  width: auto; 
+
+  /* --- ¡AQUÍ ESTÁ LA LÍNEA NUEVA! --- */
+  padding: 15px; /* Esto fuerza la simetría */
+}
+
+
+/* Animación "Swap" para los botones del modal
+  (Tu idea de que el botón café se vuelva blanco)
+*/
+.modal-footer .btn-principal:hover {
+  background-color: var(--color-blanco); /* Fondo blanco */
+  color: var(--color-acento-choco); /* Texto café */
+}
+
+/* La regla de hover para .btn-secundario (que lo vuelve café)
+  ya la creamos en la SECCIÓN 11 y funciona perfecto.
+*/
+
+
+/*
+  -------------------------------------------------
+  SECCIÓN 22: BOTONES DE COMPARTIR (PRODUCTO)
+  -------------------------------------------------
+*/
+
+.product-share {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-acento-rosa);
+}
+
+.share-title {
+  font-family: var(--fuente-principal);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-texto-principal);
+  margin-bottom: 15px;
+}
+
+.share-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.share-link i {
+  font-size: 32px; /* Iconos grandes */
+  color: var(--color-texto-principal);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+/* Efecto de "zoom" y color de marca */
+.share-link:hover i {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+#share-fb:hover i { color: #1877F2; } /* Facebook Blue */
+#share-tw:hover i { color: #1DA1F2; } /* Twitter Blue */
+#share-wa:hover i { color: #25D366; } /* WhatsApp Green */
+
+
+/*
+  -------------------------------------------------
+  SECCIÓN 23: LAYOUT DE CHECKOUT
+  -------------------------------------------------
+*/
+
+.checkout-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start; /* Alinea arriba */
+}
+
+/* Columna izquierda del formulario */
+.checkout-form-container {
+  flex: 2; /* Ocupa 2/3 */
+}
+/* Reutilizamos .form-container, solo ajustamos el margen */
+.checkout-form-container .form-container {
+  margin-top: 0;
+}
+.checkout-form-container h3 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-acento-rosa);
+  padding-bottom: 10px;
+}
+
+/* Columna derecha del resumen */
+.checkout-summary {
+  flex: 1; /* Ocupa 1/3 */
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-acento-rosa);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.checkout-summary h3 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.checkout-list {
+  max-height: 400px;
+  overflow-y: auto; /* Scroll si hay muchos productos */
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-texto-secundario);
+}
+/* Estilo para cada item en el resumen */
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+}
+.summary-item-details {
+  font-size: 14px;
+}
+.summary-item-details span {
+  font-weight: 700;
+  color: #555;
+}
+.summary-item-price {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Reutilizamos .summary-total del carrito */
+
+
+/* --- Portabilidad para el Checkout --- */
+@media (max-width: 768px) {
+  .checkout-layout {
+    flex-direction: column-reverse; /* El resumen va arriba */
+  }
+}
+
+/*
+  -------------------------------------------------
+  SECCIÓN 24: PÁGINA DE CONFIRMACIÓN
+  -------------------------------------------------
+*/
+
+/* (Reutilizamos .content-container, así que solo estilamos lo nuevo) */
+
+.order-status {
+  background-color: #f4f7fa; /* Gris claro */
+  border: 1px solid var(--color-texto-secundario);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+.order-status p {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.order-status p:first-child {
+  margin-bottom: 10px;
+}
+
+/* Estilo para la fila de TOTAL en la tabla */
+.summary-total-row td {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-acento-choco);
+  border-top: 2px solid var(--color-texto-principal);
+}
+
+/* --- AÑADE ESTO al final de la SECCIÓN 24 --- */
+
+.boleta-header {
+  text-align: center;
+}
+.boleta-header p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.boleta-info p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+
+.boleta-totales {
+  width: 100%;
+  max-width: 400px; /* Ancho máximo para los totales */
+  margin-left: auto; /* Alinear a la derecha */
+  margin-top: 20px;
+}
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.total-line span:first-child {
+  font-weight: 700;
+  color: #555;
+}
+.total-line span:last-child {
+  font-weight: 700;
+}
+
+/* Reutilizamos esta clase para el total final */
+.boleta-totales .summary-total-row {
+  font-size: 20px;
+  color: var(--color-acento-choco);
+  border-top: 2px solid var(--color-texto-principal);
+}
+
+
+/*
+  -------------------------------------------------
+  SECCIÓN 25: MAPA INCRUSTADO (CONTACTO)
+  -------------------------------------------------
+*/
+
+.map-container {
+  width: 100%;
+  border-radius: 8px; /* Mantenemos el borde redondeado para el iframe */
+  overflow: hidden; /* Mantenemos esto para que el iframe obedezca */
+}
+
+.map-container iframe {
+  width: 100%; /* Hace que el mapa sea responsivo */
+  height: 400px;
+  display: block; /* Elimina espacios extra debajo del iframe */
 }

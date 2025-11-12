@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastelería Mil Sabores - Confirmación</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html" class="nav-logo">
+                    <h1 class="logo-text">Pastelería Mil Sabores</h1>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tienda.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+                <ul class="nav-user">
+                    <li class="nav-publico"><a href="login.html">Iniciar Sesión</a></li>
+                    <li class="nav-publico"><a href="registro.html">Registrar</a></li>
+                    <li class="nav-cliente"><a href="perfil.html">Mi Perfil</a></li>
+                    <li class="nav-admin"><a href="../admin/index.html">Panel Admin</a></li>
+                    <li class="nav-logueado"><a id="logout-link" href="#">Cerrar Sesión</a></li>
+                    <li><a href="carrito.html" id="cart-link">Carrito (0)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <div class="content-container" id="boleta-container">
+
+                <div class="boleta-header">
+                    <h2 class="logo-text" style="font-size: 36px; text-align: center;">Pastelería Mil Sabores</h2>
+                    <p>
+                        O'Higgins 550, Concepción, Bío Bío<br>
+                        RUT: --------------<br>
+                        Tel: --------------<br>
+                    </p>
+                </div>
+
+                <hr class="content-divider">
+
+                <div class="boleta-info">
+                    <p><strong>Pedido:</strong> #123456 (Simulado)</p>
+                    <p><strong>Estado:</strong> <span style="font-weight: 700; color: #2E7D32;">En preparación</span>
+                    </p>
+                    <p><strong>Cliente:</strong> <span id="boleta-email">Cargando...</span></p>
+                </div>
+
+                <hr class="content-divider">
+
+                <h3>Detalle del Pedido</h3>
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cant.</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="confirm-list">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="boleta-totales">
+                    <div class="total-line">
+                        <span>Subtotal:</span>
+                        <span id="boleta-subtotal">$0</span>
+                    </div>
+                    <div class="total-line" id="boleta-linea-dcto-edad" style="display: none;">
+                        <span>Descuento por Edad (50%):</span>
+                        <span id="boleta-dcto-edad">-$0</span>
+                    </div>
+                    <div class="total-line" id="boleta-linea-dcto-codigo" style="display: none;">
+                        <span>Descuento Promocional (10%):</span>
+                        <span id="boleta-dcto-codigo">-$0</span>
+                    </div>
+                    <div class="total-line summary-total-row">
+                        <span>TOTAL A PAGAR:</span>
+                        <span id="boleta-total-final">$0</span>
+                    </div>
+                </div>
+
+                <a href="tienda.html" class="btn-principal" style="width: 100%; margin-top: 30px;">
+                    Seguir Comprando
+                </a>
+                <button id="btn-confirm-salir" class="btn-secundario-admin">
+                    Salir (Cerrar Sesión)
+                </button>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="modal-overlay">
+        <div id="modal-container">
+
+            <div class="modal-header">
+                <h3>Acción Requerida</h3>
+                <button id="modal-close" class="modal-close-btn">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <p>Debes iniciar sesión o registrarte para poder continuar con el pago.</p>
+            </div>
+
+            <div class="modal-footer">
+                <a href="login.html" class="btn-principal" id="modal-btn-login">Iniciar Sesión</a>
+                <a href="registro.html" class="btn-secundario" id="modal-btn-registro">Registrarme</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer class="main-footer">
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/validaciones.js" defer></script>
+
+</body>
+
+</html>

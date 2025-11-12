@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pastelería Mil Sabores - Detalle de Producto</title>
-  
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
   <header class="main-header">
@@ -25,9 +30,9 @@
         <ul class="nav-user">
           <li class="nav-publico"><a href="login.html">Iniciar Sesión</a></li>
           <li class="nav-publico"><a href="registro.html">Registrar</a></li>
-          
+
           <li class="nav-cliente"><a href="perfil.html">Mi Perfil</a></li>
-          
+
           <li class="nav-admin"><a href="../admin/index.html">Panel Admin</a></li>
 
           <li class="nav-logueado"><a id="logout-link" href="#">Cerrar Sesión</a></li>
@@ -40,32 +45,32 @@
 
   <main>
     <div class="container">
-      
+
       <div class="product-detail-layout">
 
         <aside class="product-gallery">
           <div class="gallery-main-image">
-            <img src="../assets/img/torta-chocolate-detalle.jpg" alt="Torta de Chocolate">
+            <img src="" alt="Producto" id="gallery-main-image">
           </div>
           <div class="gallery-thumbnails">
-            <img src="../assets/img/torta-chocolate-thumb1.jpg" alt="Torta de Chocolate vista 1" class="thumbnail active">
-            <img src="../assets/img/torta-chocolate-thumb2.jpg" alt="Torta de Chocolate vista 2" class="thumbnail">
-            <img src="../assets/img/torta-chocolate-thumb3.jpg" alt="Torta de Chocolate vista 3" class="thumbnail">
+            <img src="" alt="Thumbnail 1" class="thumbnail" id="gallery-thumb-1">
+            <img src="" alt="Thumbnail 2" class="thumbnail" id="gallery-thumb-2">
+            <img src="" alt="Thumbnail 3" class="thumbnail" id="gallery-thumb-3">
           </div>
         </aside>
 
         <section class="product-info">
-          
+
           <h2 class="product-title">Torta Cuadrada de Chocolate</h2>
           <span class="product-price">$45.000</span>
-          
+
           <p class="product-description">
-            Deliciosa torta de chocolate con capas de ganache y un toque de avellanas. 
+            Deliciosa torta de chocolate con capas de ganache y un toque de avellanas.
             Personalizable con mensajes especiales.
           </p>
 
           <form id="add-to-cart-form">
-            
+
             <div class="form-group">
               <label for="product-custom-msg">Mensaje Personalizado (Opcional)</label>
               <input type="text" id="product-custom-msg" name="custom_msg" placeholder="Ej: ¡Feliz Cumpleaños!">
@@ -80,6 +85,21 @@
 
           </form>
 
+
+          <div class="product-share">
+            <h4 class="share-title">Compartir este producto:</h4>
+            <div class="share-icons">
+              <a href="#" id="share-fb" class="share-link">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a href="#" id="share-tw" class="share-link">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#" id="share-wa" class="share-link">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
         </section>
 
       </div>
@@ -88,13 +108,30 @@
   </main>
 
   <footer class="main-footer">
-    <div class="container">
-      <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+    <div class="container footer-layout">
+
+      <div class="footer-copy">
+        <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.facebook.com" target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </div>
+
     </div>
   </footer>
 
   <script src="../js/main.js" defer></script>
   <script src="../js/validaciones.js" defer></script>
-  
+
 </body>
+
 </html>
